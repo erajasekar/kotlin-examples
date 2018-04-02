@@ -16,10 +16,9 @@ data class PathFragment(val path : String, val fragment: String)
 fun sanitizeComponentDefUrl(url: String): String? {
 
     val pf : PathFragment? = executeComponentDefWhitelistRule(extractURIPathAndFragment(url))
-    if (isValidSanitizedUrl(pf)){
-        return combinePathAndFragment(pf)
-    }
-    return null;
+
+    return if(isValidSanitizedUrl(pf)) combinePathAndFragment(pf) else null
+
 }
 
 
