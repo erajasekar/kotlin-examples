@@ -21,7 +21,7 @@ data class Degrees(val deg: Int, val min: Int, val sec: Int) {
     }
 
     operator fun plus(other: Degrees) : Degrees{
-        return ((this.decimal + other.decimal) modulus 60 ).toDegrees()
+        return ((this.decimal + other.decimal) modulus 360 ).toDegrees()
     }
 
     fun format(delimer : String = ":", ignoreSign: Boolean = true): String {
@@ -35,7 +35,7 @@ data class Degrees(val deg: Int, val min: Int, val sec: Int) {
 fun main(args: Array<String>) {
     val d1 =   Degrees(12,12,10)
 
-    val d2 =   Degrees(12,50,10)
+    val d2 =   Degrees(72,50,10)
 
 
     println(d1.decimal)
