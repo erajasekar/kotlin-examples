@@ -1,4 +1,4 @@
-package example3
+package examplejava
 
 class Mod(internal var mod: Int) {
 

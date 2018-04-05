@@ -1,5 +1,5 @@
 
-package example4
+package examplejava
 
 //Flexible enums or super power enums with Kotlin sealed classes
 sealed class Topic(val keyCode: String, val isLegacy:Boolean) {

@@ -1,6 +1,5 @@
-package example2
+package examplejava
 
-import javaslang.Tuple2
 import javaslang.control.Try
 import ui.instrumentation.impl.support.ComponentDefWhitelistRule
 import ui.instrumentation.impl.support.UtilFunctions.*
@@ -8,7 +7,6 @@ import java.io.UnsupportedEncodingException
 import java.net.URI
 import java.net.URLDecoder
 import java.net.URLEncoder
-import java.util.*
 
 data class PathFragment(val path : String, val fragment: String)
 

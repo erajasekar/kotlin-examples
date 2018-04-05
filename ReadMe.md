@@ -1,11 +1,11 @@
-# Kotlin hello-world example with maven
+# Kotlin hello-world examplejava with maven
 
-## Prerequisites to running the example
+## Prerequisites to running the examplejava
 
  * download Maven directly from the [Apache Maven homepage](http://maven.apache.org/download.html)
  * install and configure your system as described in [the installation section](http://maven.apache.org/download.html#Installation)
 
-## Compiling/Testing/Running the example
+## Compiling/Testing/Running the examplejava
 
 If you have maven on your path, simple type:
 
@@ -17,7 +17,7 @@ It will compile:
 
 Then run tests, and finally run your main HelloKt class.
 
-## Only running the example
+## Only running the examplejava
 
 Once you compiled the sources with previous 'mvn test' command, you can run the application by typing:
 

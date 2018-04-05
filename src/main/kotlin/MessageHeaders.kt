@@ -1,4 +1,4 @@
-package example5
+package examplejava
 
 data class MessageHeaders<T>(val delegate : Map<String, T>) : Map<String, T> by delegate{
 

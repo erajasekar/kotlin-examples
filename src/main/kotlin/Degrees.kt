@@ -1,6 +1,4 @@
-package example3
-
-import java.text.NumberFormat
+package examplejava
 
 fun Double.toDegrees() = Degrees.fromDecimal(this)
 infix fun Double.modulus(base: Int) = Mod(base).apply(this)
