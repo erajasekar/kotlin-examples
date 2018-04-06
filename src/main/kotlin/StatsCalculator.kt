@@ -23,7 +23,7 @@ sealed class Stats {
 
                 is Stats.Avg -> calculate(Stats.Sum, values) / calculate(Stats.Count, values)
 
-                is Stats.Quantile -> Quantiles.percentiles().index(stats.percentile).compute(values)
+                is Stats.Quantile -> Quantiles.percentiles().index(stats.percentile).compute(values) //Works seamlessly with Java libs
             }
 }
 
