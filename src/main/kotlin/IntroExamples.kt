@@ -239,8 +239,15 @@ fun smartCastExample() {
         //Prints completed
         //java.lang.RuntimeException: some thing went wrong
     }
+}
 
+fun javaInterOp() {
 
+    val numbers: List<Int> = listOf(100, 20, 30, 4)
+
+    //Can pass kotin's Collection<Int> to Java SDK that expects Java List
+    java.util.Collections.sort(numbers)
+    println(numbers) //Prints [4, 20, 30, 100]
 }
 
 
@@ -263,6 +270,7 @@ fun main(args: Array<String>) {
     withExample()
     operatorOverloading()
     lazyExample()
+    javaInterOp()
 
 }
 
