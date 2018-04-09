@@ -1,8 +1,5 @@
 package example
 
-import examplejava.Person
-import sun.security.util.Length
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -24,6 +21,15 @@ fun nullSafety(){
     nameLength = nullableName?.length ?: 0
 }
 
+fun typeInference(){
+
+    var number = 10
+   // number = "10" // Compilator Error: Type Mismatch. Required Int, Found String.
+
+    val name = "Kotlin"
+    //name = "Hello" // Compilation Error: val can't be reassigned.
+}
+
 fun stringTempletes(){
     var name = "Kotlin"
 
@@ -35,6 +41,7 @@ fun stringTempletes(){
 fun mapSimplification(){
 
     val numbers = listOf(1,2,3,4,5)
+    val colors = setOf("Blue", "Green", "Red")
 
     val numberWords = mapOf( 1 to "One", 2 to "Two" , 3 to "Three")
 
@@ -45,7 +52,10 @@ fun mapSimplification(){
 
 fun ranges(){
 
-    val numbers = 1..100;
+    val numbers = 1..100;//Closed Range
+    val numbersUpTo10 = 1 until 10 //Exclude boundaries
+    val evenNumbers = 0 until 10 step 2
+
 
     val n = 50
     //User in operator to check if something in range.
@@ -78,13 +88,18 @@ fun expressions(){
 
 fun defaultAndNamedParameters(){
 
+    data class Person(val firstName: String, val email: String, val age: Int = 0)
+
+    val person = Person(firstName = "John", email = "john@company.com", age = 0)
+    println(person) //Person(firstName=John, email=john@company.com, age=0)
+
+
     fun formatDate(date: LocalDate,format : String = "MM/dd/YY") : String{
         return DateTimeFormatter.ofPattern(format).format(date)
     }
 
     println(formatDate(LocalDate.now())) // Prints 04/06/18
     println(formatDate(LocalDate.now(), "dd/MM/YY")) // Prints 06/04/18
-    println(formatDate(LocalDate.now(), format = "dd/MM/YY")) // You can also use named parameters
 
 }
 
@@ -95,9 +110,6 @@ fun extensionFunctions(){
     println(2.isEven())//Prints true
 
 }
-
-
-
 
 fun dataClasses(){
 
@@ -194,12 +206,18 @@ fun operatorOverloading(){
         operator fun plus(other: Point): Point {
             return Point(x + other.x, y + other.y)
         }
+
+        operator fun minus(other: Point): Point {
+            return Point(x - other.x, y - other.y)
+        }
     }
 
     val p1 = Point(10, 20);
     val p2 = Point(30,40)
 
     println(p1 + p2) // Prints Point(x=40, y=60)
+    println(p1 - p2)
+
 }
 
 fun lazyExample(){
