@@ -18,6 +18,8 @@ fun main(args: Array<String>) {
 
     //Default values in case of null
     var length = name?.length ?: 0
+
+    //Throw exception in case of null
     length = name?.length  ?: throw IllegalArgumentException("Can't be null")
 
     callJavaNullableFunction();

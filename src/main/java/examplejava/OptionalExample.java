@@ -25,6 +25,8 @@ public class OptionalExample {
 
         //Default values in case of null
         int length = name.map(String::length).orElse(0);
+
+        //Throw exception in case of null
         length = name.map(String::length).orElseThrow(() -> new IllegalArgumentException("Can't be null"));
     }
 
