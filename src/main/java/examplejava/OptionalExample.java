@@ -1,6 +1,10 @@
 package examplejava;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class OptionalExample {
     public static void main(String[] args) {
@@ -10,8 +14,11 @@ public class OptionalExample {
         //Transforming
         name.map(String::toUpperCase);
 
-        //Filter non null
-        name.filter(s -> !s.isEmpty());
+        //Filter non empty from list of Optionals
+        Stream.of(name, Optional.empty())
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .forEach(System.out::println); //Prints Hello
 
         //Do something only if not null
         name.ifPresent(System.out::println);
@@ -19,7 +26,13 @@ public class OptionalExample {
         //Default values in case of null
         int length = name.map(String::length).orElse(0);
         length = name.map(String::length).orElseThrow(() -> new IllegalArgumentException("Can't be null"));
-
-
     }
+
+    public static String javaMethodWithNullable(String nullableInput,
+                                                @NotNull  String nonNullableAnnotatedInput ,
+                                                @Nullable String nullableAnnotatedInput){
+        return nullableInput.toUpperCase() + nonNullableAnnotatedInput.toUpperCase() + nullableAnnotatedInput.toUpperCase();
+    }
+
+
 }
